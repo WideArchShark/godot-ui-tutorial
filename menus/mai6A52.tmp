@@ -1,0 +1,199 @@
+[gd_scene load_steps=7 format=3 uid="uid://53xbqrwxtrk0"]
+
+[ext_resource type="Theme" uid="uid://dqsks6iqo7txc" path="res://menus/ui.theme" id="1_ylkel"]
+[ext_resource type="Texture2D" uid="uid://bpsirmjom1n2p" path="res://menus/wallpaperflare.com_wallpaper.jpg" id="2_27v4u"]
+[ext_resource type="Script" path="res://menus/main_menu.gd" id="2_bjiif"]
+[ext_resource type="Script" path="res://menus/TopVBoxContainer.gd" id="2_rvspd"]
+[ext_resource type="Script" path="res://menus/QuitVBoxContainer.gd" id="4_xh05n"]
+[ext_resource type="Script" path="res://menus/OptionsGridContainer.gd" id="5_ci6yj"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ylkel")
+script = ExtResource("2_bjiif")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_27v4u")
+expand_mode = 2
+stretch_mode = 6
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 11.0
+offset_bottom = 57.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.356863)
+theme_override_constants/shadow_offset_x = 8
+theme_override_constants/shadow_offset_y = 8
+theme_override_font_sizes/font_size = 128
+text = "Retro Blast"
+horizontal_alignment = 1
+
+[node name="TopVBoxContainer" type="VBoxContainer" parent="."]
+visible = false
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -225.0
+offset_top = -174.0
+offset_right = 225.0
+offset_bottom = 174.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+script = ExtResource("2_rvspd")
+
+[node name="PlayButton" type="Button" parent="TopVBoxContainer"]
+layout_mode = 2
+text = "Play"
+
+[node name="ContinueButton" type="Button" parent="TopVBoxContainer"]
+layout_mode = 2
+disabled = true
+text = "Continue
+"
+
+[node name="OptionsButton" type="Button" parent="TopVBoxContainer"]
+layout_mode = 2
+text = "Options"
+
+[node name="QuitButton" type="Button" parent="TopVBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[node name="QuitVBoxContainer" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -68.5
+offset_right = 200.0
+offset_bottom = 68.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_xh05n")
+
+[node name="Label" type="Label" parent="QuitVBoxContainer"]
+layout_mode = 2
+text = "Confirm Exit"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="QuitVBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="YesButton" type="Button" parent="QuitVBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Yes"
+
+[node name="NoButton" type="Button" parent="QuitVBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "No"
+
+[node name="OptionsGridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -232.5
+offset_top = -40.5
+offset_right = 232.5
+offset_bottom = 40.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 16
+columns = 2
+script = ExtResource("5_ci6yj")
+
+[node name="DifficultyLabel" type="Label" parent="OptionsGridContainer"]
+layout_mode = 2
+text = "Difficulty"
+
+[node name="DifficultyOptionButton" type="OptionButton" parent="OptionsGridContainer"]
+layout_mode = 2
+item_count = 4
+selected = 1
+popup/item_0/text = "Easy"
+popup/item_0/id = 0
+popup/item_1/text = "Normal"
+popup/item_1/id = 1
+popup/item_2/text = "Hard"
+popup/item_2/id = 2
+popup/item_3/text = "Insane"
+popup/item_3/id = 3
+
+[node name="ResolutionLabel" type="Label" parent="OptionsGridContainer"]
+layout_mode = 2
+text = "Resolution
+"
+
+[node name="ResolutionOptionButton" type="OptionButton" parent="OptionsGridContainer"]
+layout_mode = 2
+item_count = 3
+selected = 0
+popup/item_0/text = "1280x720"
+popup/item_0/id = 0
+popup/item_1/text = "1920x1080"
+popup/item_1/id = 1
+popup/item_2/text = "2560x1440"
+popup/item_2/id = 2
+
+[node name="FullScreenLabel" type="Label" parent="OptionsGridContainer"]
+layout_mode = 2
+text = "Full Screen"
+
+[node name="FullScreenCheckBox" type="CheckBox" parent="OptionsGridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="MasterVolumeLabel" type="Label" parent="OptionsGridContainer"]
+layout_mode = 2
+text = "Master Volume"
+
+[node name="MasterVolumeHSlider" type="HSlider" parent="OptionsGridContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="BackButton" type="Button" parent="OptionsGridContainer"]
+layout_mode = 2
+text = "Back"
+
+[connection signal="pressed" from="TopVBoxContainer/PlayButton" to="TopVBoxContainer" method="_on_play_button_pressed"]
+[connection signal="pressed" from="TopVBoxContainer/OptionsButton" to="TopVBoxContainer" method="_on_options_button_pressed"]
+[connection signal="pressed" from="TopVBoxContainer/QuitButton" to="TopVBoxContainer" method="_on_quit_button_pressed"]
+[connection signal="pressed" from="QuitVBoxContainer/HBoxContainer/YesButton" to="QuitVBoxContainer" method="_on_yes_button_pressed"]
+[connection signal="pressed" from="QuitVBoxContainer/HBoxContainer/NoButton" to="QuitVBoxContainer" method="_on_no_button_pressed"]
+[connection signal="item_selected" from="OptionsGridContainer/ResolutionOptionButton" to="OptionsGridContainer" method="_on_resolution_option_button_item_selected"]
+[connection signal="toggled" from="OptionsGridContainer/FullScreenCheckBox" to="OptionsGridContainer" method="_on_full_screen_check_box_toggled"]
+[connection signal="value_changed" from="OptionsGridContainer/MasterVolumeHSlider" to="OptionsGridContainer" method="_on_master_volume_h_slider_value_changed"]
+[connection signal="pressed" from="OptionsGridContainer/BackButton" to="OptionsGridContainer" method="_on_back_button_pressed"]

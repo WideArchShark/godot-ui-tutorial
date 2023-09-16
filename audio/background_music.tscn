@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdw1fdt0x6ujc"]
+
+[ext_resource type="AudioStream" uid="uid://c2xsljf1dk2bh" path="res://audio/Funny-background-music.mp3" id="1_uvlab"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_uvlab")
+autoplay = true
+bus = &"Music"
